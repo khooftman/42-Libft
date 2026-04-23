@@ -6,7 +6,7 @@
 /*   By: khooftma <khooftma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 11:45:57 by khooftma          #+#    #+#             */
-/*   Updated: 2026/04/23 13:02:44 by khooftma         ###   ########.fr       */
+/*   Updated: 2026/04/23 16:10:43 by khooftma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,75 @@
 
 int	main(void)
 {
+	char	*original = "Hallo 42!";
+	char	*copy;
+
+	// 1. De functie aanroepen
+	copy = ft_strdup(original);
+
+	// 2. Controleren of malloc is geslaagd
+	if (copy == NULL)
+	{
+		printf("Error: malloc gefaald\n");
+		return (1);
+	}
+
+	// 3. De tests printen
+	printf("Origineel: %s (Adres: %p)\n", original, (void *)original);
+	printf("Kopie:     %s (Adres: %p)\n", copy, (void *)copy);
+
+	// 4. Vergelijken
+	if (strcmp(original, copy) == 0 && original != copy)
+	{
+		printf("\n Test geslaagd!\n");
+		printf("- De inhoud is gelijk.\n");
+		printf("- De geheugenadressen zijn verschillend (nieuwe allocatie).\n");
+	}
+	else
+	{
+		printf("\n Test gefaald!\n");
+		if (original == copy)
+			printf("- Fout: Je hebt geen nieuw geheugen gealloceerd!\n");
+	}
+
+	// 5. Belangrijk: Geheugen weer vrijmaken!
+	free(copy);
+
+	return (0);
+	/*
+	int		*getallen;
+	size_t	aantal = 0;
+	size_t	i;
+
+	printf("--- FT_CALLOC DEMO ---\n");
+
+	// Gebruik ft_calloc voor een array van 5 integers
+	getallen = (int *)ft_calloc(aantal, sizeof(int));
+
+	if (getallen == NULL)
+	{
+		printf("Allocatie mislukt!\n");
+		return (1);
+	}
+
+	// Print de waarden om te bewijzen dat ze 0 zijn
+	printf("Waarden in de array na ft_calloc:\n");
+	i = 0;
+	while (i < aantal)
+	{
+		printf("getallen[%zu] = %d\n", i, getallen[i]);
+		i++;
+	}
+
+	// Geheugen netjes opruimen
+	free(getallen);
+	
+	printf("----------------------\n");
+	printf("Test geslaagd!\n");
+
+	return (0);
+	
+	
 	char *test1 = "   -1234ab56";
 	char *test2 = "--123";
 	char *test3 = "++123";
@@ -33,7 +102,7 @@ int	main(void)
 
 	return (0);
 	
-	/*char *str = "Pindakaas met hagelslag";
+	char *str = "Pindakaas met hagelslag";
 	char *res1;
 
 	printf("--- TEST 1: Normale match ---\n");
