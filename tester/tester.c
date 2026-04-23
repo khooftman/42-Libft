@@ -6,7 +6,7 @@
 /*   By: khooftma <khooftma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 11:45:57 by khooftma          #+#    #+#             */
-/*   Updated: 2026/04/23 16:10:43 by khooftma         ###   ########.fr       */
+/*   Updated: 2026/04/23 16:57:24 by khooftma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,25 @@
 
 int	main(void)
 {
+	char *result;
+
+	// Test 1: Normaal knippen
+	result = ft_substr("Hallo Wereld", 6, 6);
+	printf("Test 1: %s\n", result); // Verwacht: "Wereld"
+	free(result);
+
+	// Test 2: Te veel vragen (len inkorten)
+	result = ft_substr("42", 0, 100);
+	printf("Test 2: %s\n", result); // Verwacht: "42"
+	free(result);
+
+	// Test 3: Start buiten bereik
+	result = ft_substr("Banaan", 20, 5);
+	printf("Test 3: '%s' (lege string)\n", result); // Verwacht: ''
+	free(result);
+
+	return (0);
+	/*
 	char	*original = "Hallo 42!";
 	char	*copy;
 
@@ -52,7 +71,7 @@ int	main(void)
 	free(copy);
 
 	return (0);
-	/*
+	
 	int		*getallen;
 	size_t	aantal = 0;
 	size_t	i;
