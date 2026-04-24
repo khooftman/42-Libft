@@ -6,7 +6,7 @@
 /*   By: khooftma <khooftma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 11:45:57 by khooftma          #+#    #+#             */
-/*   Updated: 2026/04/23 16:57:24 by khooftma         ###   ########.fr       */
+/*   Updated: 2026/04/24 18:43:15 by khooftma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,94 @@
 
 int	main(void)
 {
+	char	*str = "  Hallo, dit is een test  ";
+	char	c = ' ';
+	char	**resultaat;
+	int		i;
+
+	i = 0;
+	// We roepen jouw functie aan
+	resultaat = ft_split(str, c);
+
+	if (!resultaat)
+	{
+		printf("Malloc gefaald!");
+		return (1);
+	}
+
+	printf("Input string: [%s]\n", str);
+	printf("Scheidingsteken: '%c'\n\n", c);
+
+	// We lopen door de array tot we de NULL tegenkomen die je aan het einde hebt gezet
+	while (resultaat[i] != NULL)
+	{
+		printf("Woord %d: %s\n", i, resultaat[i]);
+		// Vergeet niet het geheugen van elk woord te free-en na het printen!
+		free(resultaat[i]);
+		i++;
+	}
+
+	// Als laatste de hoofd-array zelf free-en
+	free(resultaat);
+
+	return (0);
+	
+	/*
+	char *res;
+
+    // Test 1: Normale spaties
+    res = ft_strtrim("   hallo wereld   ", " ");
+    printf("Test 1 (Spaties): [%s]\n", res);
+    free(res);
+
+    // Test 2: Sterretjes en streepjes
+    res = ft_strtrim("***---Libft---***", "*-");
+    printf("Test 2 (Symbolen): [%s]\n", res);
+    free(res);
+
+    // Test 3: Alles weg (alleen maar 'A's)
+    res = ft_strtrim("AAAAA", "A");
+    printf("Test 3 (Alles weg): [%s]\n", res);
+    free(res);
+
+    // Test 4: Niets te trimmen
+    res = ft_strtrim("Code", " ");
+    printf("Test 4 (Geen match): [%s]\n", res);
+    free(res);
+
+    // Test 5: Lege string
+    res = ft_strtrim("", "123");
+    printf("Test 5 (Leeg): [%s]\n", res);
+    free(res);
+
+	return (0);
+	
+	
+	char	*s1 = "Hello ";
+	char	*s2 = "42 Network!";
+	char	*result;
+
+	// De functie aanroepen
+	result = ft_strjoin(s1, s2);
+
+	// Test 1: Bestaat de pointer?
+	if (!result)
+	{
+		printf("Malloc gefaald of NULL input!\n");
+		return (1);
+	}
+
+	// Test 2: Print het resultaat
+	printf("Resultaat: [%s]\n", result);
+
+	// Test 3: Check de lengte (moet 6 + 11 = 17 zijn)
+	// printf("Lengte: %zu\n", ft_strlen(result));
+
+	// HEEL BELANGRIJK: Altijd free-en wat je malloced!
+	free(result);
+
+	return (0);
+	
 	char *result;
 
 	// Test 1: Normaal knippen
@@ -35,7 +123,7 @@ int	main(void)
 	free(result);
 
 	return (0);
-	/*
+	
 	char	*original = "Hallo 42!";
 	char	*copy;
 
