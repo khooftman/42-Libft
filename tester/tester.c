@@ -6,7 +6,7 @@
 /*   By: khooftma <khooftma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 11:45:57 by khooftma          #+#    #+#             */
-/*   Updated: 2026/04/24 18:43:15 by khooftma         ###   ########.fr       */
+/*   Updated: 2026/04/27 17:18:07 by khooftma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,95 @@
 #include <string.h>
 #include "../libft.h"
 
+int main (void)
+{
+	ft_putnbr_fd(-321654, 1); 
+	return (0);
+}
+
+/*
+{
+	ft_putstr_fd("Hallo", 1); // Verschijnt gewoon
+	ft_putstr_fd("Hallo", 2); // Verschijnt ook, maar is technisch gezien een 'error' uitvoer
+	return (0);
+}
+
+void my_test_iter(unsigned int i, char *c)
+{
+	(void)i; // i gebruiken we nu niet, dus we voiden hem tegen warnings
+	if (*c >= 'a' && *c <= 'z')
+		*c = *c - 32;
+}	
 int	main(void)
 {
+	// Belangrijk: gebruik een char array [], GEEN char *str = "..."
+	// want een array is wel schrijfbaar!
+	char str[] = "hallo wereld";
+
+	printf("Voor striteri: %s\n", str);
+
+	// We voeren de kapper-actie uit op de originele string
+	ft_striteri(str, my_test_iter);
+
+	printf("Na striteri:  %s\n", str);
+
+	// Check: Als het goed is, is 'str' nu "HALLO WERELD"
+	return (0);
+}
+ 
+	
+	char transform(unsigned int i, char c)
+{
+	(void)i; // We gebruiken de index i even niet, dus we casten hem naar void
+	if (c >= 'a' && c <= 'z')
+		return (c - 32); // Maakt van kleine letters hoofdletters
+	return (c);
+} // int main(void)
+ {
+	char *input = "hallo wereld";
+	char *output;
+
+	// Hier roep je jouw ft_strmapi aan
+	output = ft_strmapi(input, transform);
+
+	if (output)
+	{
+		printf("Input:  %s\n", input);
+		printf("Output: %s\n", output);
+		free(output);
+	}
+	return (0);
+}
+	
+	char *res;
+
+	// Test 1: Positief getal
+	res = ft_itoa(156);
+	printf("Test 1 (156): %s\n", res);
+	free(res);
+
+	// Test 2: Negatief getal
+	res = ft_itoa(-1234);
+	printf("Test 2 (-1234): %s\n", res);
+	free(res);
+
+	// Test 3: Nul
+	res = ft_itoa(0);
+	printf("Test 3 (0): %s\n", res);
+	free(res);
+
+	// Test 4: Het kleinste getal (de ultieme test)
+	res = ft_itoa(-2147483648);
+	printf("Test 4 (INT_MIN): %s\n", res);
+	free(res);
+
+	// Test 5: Het grootste getal
+	res = ft_itoa(2147483647);
+	printf("Test 5 (INT_MAX): %s\n", res);
+	free(res);
+
+	return (0);
+	
 	char	*str = "  Hallo, dit is een test  ";
 	char	c = ' ';
 	char	**resultaat;
@@ -49,7 +136,6 @@ int	main(void)
 
 	return (0);
 	
-	/*
 	char *res;
 
     // Test 1: Normale spaties
@@ -537,5 +623,5 @@ char *str = "bonjourno"; // De 'o' komt twee keer voor
 	printf("Test 2 (verschil):      %d\n", ft_strncmp("abcde", "abczz", 4)); // Moet negatief zijn
 
 	return (0);*/
-}
+
 

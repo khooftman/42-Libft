@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putend1_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khooftma <khooftma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/23 10:22:03 by khooftma          #+#    #+#             */
-/*   Updated: 2026/04/27 17:55:12 by khooftma         ###   ########.fr       */
+/*   Created: 2026/04/27 16:10:47 by khooftma          #+#    #+#             */
+/*   Updated: 2026/04/27 16:14:54 by khooftma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_putend1_fd(char *s, int fd)
 {
-	const unsigned char	*p1;
-	const unsigned char	*p2;
-
-	p1 = (const unsigned char *)s1;
-	p2 = (const unsigned char *)s2;
-	while (n--)
-	{
-		if (*p1 != *p2)
-			return (*p1 - *p2);
-		p1++;
-		p2++;
-	}
-	return (0);
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
 }

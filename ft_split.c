@@ -6,13 +6,13 @@
 /*   By: khooftma <khooftma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:12:26 by khooftma          #+#    #+#             */
-/*   Updated: 2026/04/24 18:41:34 by khooftma         ###   ########.fr       */
+/*   Updated: 2026/04/27 18:01:03 by khooftma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int count_words(char const *s, char c)
+static int	count_words(char const *s, char c)
 {
 	int	count;
 	int	i;
@@ -21,7 +21,7 @@ static int count_words(char const *s, char c)
 	i = 0;
 	while (s[i])
 	{
-		while(s[i] && s[i] == c)
+		while (s[i] && s[i] == c)
 			i++;
 		if (s[i])
 		{
@@ -33,7 +33,7 @@ static int count_words(char const *s, char c)
 	return (count);
 }
 
-static char **free_all(char **lst, int i)
+static char	**free_all(char **lst, int i)
 {
 	while (i >= 0)
 	{
@@ -44,14 +44,17 @@ static char **free_all(char **lst, int i)
 	return (NULL);
 }
 
-char **ft_split(char const *s, char c)
+/*
+** Hier kan je comment zetten die dan als mouseover komt als je op de functie hovert
+*/
+char	**ft_split(char const *s, char c)
 {
 	char	**lst;
 	int		i;
 	int		len;
 
 	i = 0;
-	if (!s) 
+	if (!s)
 		return (NULL);
 	lst = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!lst)
@@ -70,8 +73,8 @@ char **ft_split(char const *s, char c)
 				return (free_all(lst, i - 1));
 			i++;
 			s += len;
-		}	
+		}
 	}
 	lst[i] = NULL;
-	return (lst);	
+	return (lst);
 }

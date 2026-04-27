@@ -6,19 +6,19 @@
 /*   By: khooftma <khooftma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 09:29:57 by khooftma          #+#    #+#             */
-/*   Updated: 2026/04/24 10:52:17 by khooftma         ###   ########.fr       */
+/*   Updated: 2026/04/27 17:36:31 by khooftma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char 	*str;
+	char	*str;
 	size_t	len1;
 	size_t	len2;
 
-	if(!s1 || !s2)
+	if (!s1 || !s2)
 		return (NULL);
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
