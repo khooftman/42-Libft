@@ -6,7 +6,7 @@
 /*   By: khooftma <khooftma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 10:56:23 by khooftma          #+#    #+#             */
-/*   Updated: 2026/04/27 17:56:54 by khooftma         ###   ########.fr       */
+/*   Updated: 2026/04/27 18:13:23 by khooftma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		}
 		i++;
 	}
-	return (NULL);		
+	return (NULL);
 }

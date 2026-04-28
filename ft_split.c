@@ -6,7 +6,7 @@
 /*   By: khooftma <khooftma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:12:26 by khooftma          #+#    #+#             */
-/*   Updated: 2026/04/27 18:01:03 by khooftma         ###   ########.fr       */
+/*   Updated: 2026/04/28 11:55:18 by khooftma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,48 +33,55 @@ static int	count_words(char const *s, char c)
 	return (count);
 }
 
-static char	**free_all(char **lst, int i)
+static char	**ft_free_all(char **words, int j)
 {
-	while (i >= 0)
-	{
-		free(lst[i]);
-		i--;
-	}
-	free(lst);
+	while (j >= 0)
+		free(words[j--]);
+	free(words);
 	return (NULL);
 }
 
-/*
-** Hier kan je comment zetten die dan als mouseover komt als je op de functie hovert
-*/
-char	**ft_split(char const *s, char c)
+static char	*word_split(const char *s, char c)
 {
-	char	**lst;
+	char	*word;
 	int		i;
-	int		len;
 
 	i = 0;
+	while (s[i] && s[i] != c)
+		i++;
+	word = (char *)malloc(sizeof(char) * (i + 1));
+	if (!word)
+		return (NULL);
+	ft_strlcpy(word, s, i + 1);
+	return (word);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		i;
+	int		j;
+	char	**words;
+
+	i = 0;
+	j = 0;
 	if (!s)
 		return (NULL);
-	lst = malloc((count_words(s, c) + 1) * sizeof(char *));
-	if (!lst)
+	words = (char **) malloc(sizeof(char *) * (count_words(s, c) + 1));
+	if (!words)
 		return (NULL);
-	while (*s)
+	while (s[i])
 	{
-		while (*s && *s == c)
-			s++;
-		if (*s)
+		if (s[i] != c)
 		{
-			len = 0;
-			while (s[len] && s[len] != c)
-				len++;
-			lst[i] = ft_substr(s, 0, len);
-			if (!lst[i])
-				return (free_all(lst, i - 1));
-			i++;
-			s += len;
+			words[j] = word_split(&s[i], c);
+			if (!words[j++])
+				return (ft_free_all(words, j - 2));
+			while (s[i] && s[i] != c)
+				i++;
 		}
+		else
+			i++;
 	}
-	lst[i] = NULL;
-	return (lst);
+	words[++j] = NULL;
+	return (words);
 }

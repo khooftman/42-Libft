@@ -6,7 +6,7 @@
 /*   By: khooftma <khooftma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 11:45:57 by khooftma          #+#    #+#             */
-/*   Updated: 2026/04/27 17:18:07 by khooftma         ###   ########.fr       */
+/*   Updated: 2026/04/28 17:12:52 by khooftma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,79 @@
 #include <string.h>
 #include "../libft.h"
 
-int main (void)
+void print_list(t_list *lst)
 {
-	ft_putnbr_fd(-321654, 1); 
-	return (0);
+    while (lst)
+    {
+        printf("[%s] -> ", (char *)lst->content);
+        lst = lst->next;
+    }
+    printf("NULL\n");
+}
+
+int main(void)
+{
+    t_list *mijn_lijst = NULL;
+
+    // 1. Test met een lege lijst (Scenario 1)
+    printf("Test 1: Toevoegen aan lege lijst\n");
+    ft_lstadd_back(&mijn_lijst, ft_lstnew("Eerste"));
+    print_list(mijn_lijst); // Verwacht: [Eerste] -> NULL
+
+    // 2. Test toevoegen aan lijst met 1 element (Scenario 2)
+    printf("\nTest 2: Tweede node achteraan toevoegen\n");
+    ft_lstadd_back(&mijn_lijst, ft_lstnew("Tweede"));
+    print_list(mijn_lijst); // Verwacht: [Eerste] -> [Tweede] -> NULL
+
+    // 3. Test met nog een node
+    printf("\nTest 3: Derde node achteraan toevoegen\n");
+    ft_lstadd_back(&mijn_lijst, ft_lstnew("Derde"));
+    print_list(mijn_lijst); // Verwacht: [Eerste] -> [Tweede] -> [Derde] -> NULL
+
+    // 4. Check of ft_lstlast nog werkt
+    t_list *last = ft_lstlast(mijn_lijst);
+    if (last)
+        printf("\nDe laatste node is: %s\n", (char *)last->content);
+
+    return (0);
 }
 
 /*
+int main (void)
+{
+	t_list  *mijn_lijst;
+    int     grootte;
+
+    mijn_lijst = NULL;
+
+    // Test 1: Lege lijst
+    grootte = ft_lstsize(mijn_lijst);
+    printf("Grootte van lege lijst: %d (verwacht: 0)\n", grootte);
+
+    // Test 2: Lijst met 1 element
+    ft_lstadd_front(&mijn_lijst, ft_lstnew("Eerste"));
+    grootte = ft_lstsize(mijn_lijst);
+    printf("Grootte na 1 toevoeging: %d (verwacht: 1)\n", grootte);
+
+    // Test 3: Lijst met 3 elementen
+    ft_lstadd_front(&mijn_lijst, ft_lstnew("Tweede"));
+    ft_lstadd_front(&mijn_lijst, ft_lstnew("Derde"));
+    grootte = ft_lstsize(mijn_lijst);
+    printf("Grootte na 3 toevoegingen: %d (verwacht: 3)\n", grootte);
+
+	// Test 4: Lijst met 4 elementen
+	ft_lstadd_front(&mijn_lijst, ft_lstnew("Vierde"));
+    grootte = ft_lstsize(mijn_lijst);
+    printf("Grootte na 4 toevoegingen: %d (verwacht: 4)\n", grootte);
+
+    return (0);
+}
+
+	t_list *node = ft_lstnew("Hallo 42");
+	printf("%s\n", (char *)node->content);
+
+	return (0);
+
 {
 	ft_putstr_fd("Hallo", 1); // Verschijnt gewoon
 	ft_putstr_fd("Hallo", 2); // Verschijnt ook, maar is technisch gezien een 'error' uitvoer
