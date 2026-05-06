@@ -6,7 +6,7 @@
 /*   By: khooftma <khooftma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 14:50:36 by khooftma          #+#    #+#             */
-/*   Updated: 2026/04/28 11:11:18 by khooftma         ###   ########.fr       */
+/*   Updated: 2026/05/06 15:40:43 by khooftma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 	total_size = nmemb * size;
 	if (total_size == 0)
-		p = malloc(1);
+		p = malloc(0);
 	else
 		p = malloc(total_size);
 	if (p == NULL)

@@ -6,7 +6,7 @@
 #    By: khooftma <khooftma@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/20 15:12:59 by khooftma          #+#    #+#              #
-#    Updated: 2026/04/28 18:20:28 by khooftma         ###   ########.fr        #
+#    Updated: 2026/05/06 11:12:40 by khooftma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,18 +24,12 @@ SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 			ft_lstclear.c ft_lstiter.c ft_lstmap.c
 OBJS	= $(SRCS:.c=.o)
 
-BONUS_SRC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
-			ft_lstadd_back.c ft_lstlast.c ft_lstdelone.c \
-			ft_lstclear.c ft_lstiter.c ft_lstmap.c
-BONUS_OBJS = $(BONUS_SRC:.c=.o)
-
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+bonus: $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

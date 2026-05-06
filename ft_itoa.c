@@ -6,7 +6,7 @@
 /*   By: khooftma <khooftma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 18:57:26 by khooftma          #+#    #+#             */
-/*   Updated: 2026/04/28 11:13:33 by khooftma         ###   ########.fr       */
+/*   Updated: 2026/05/06 16:46:58 by khooftma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ static int	get_len(int n)
 	if (nb <= 0)
 	{
 		len = 1;
-		if (nb < 0)
-			nb = -nb;
+		nb = -nb;
 	}
 	while (nb > 0)
 	{

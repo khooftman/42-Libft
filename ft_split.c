@@ -6,7 +6,7 @@
 /*   By: khooftma <khooftma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:12:26 by khooftma          #+#    #+#             */
-/*   Updated: 2026/04/28 18:07:12 by khooftma         ###   ########.fr       */
+/*   Updated: 2026/05/06 16:39:11 by khooftma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	**ft_split(char const *s, char c)
 	j = 0;
 	if (!s)
 		return (NULL);
-	words = malloc(sizeof(char *) * (count_words(s, c) + 1));
+	words = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (!words)
 		return (NULL);
 	while (j < count_words(s, c))

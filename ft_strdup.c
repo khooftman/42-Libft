@@ -6,7 +6,7 @@
 /*   By: khooftma <khooftma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 15:26:43 by khooftma          #+#    #+#             */
-/*   Updated: 2026/04/27 17:35:09 by khooftma         ###   ########.fr       */
+/*   Updated: 2026/05/06 15:36:47 by khooftma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,12 @@
 char	*ft_strdup(const char *s)
 {
 	char	*dest;
-	int		i;
-	int		len;
+	size_t	len;
 
 	len = ft_strlen(s);
 	dest = (char *)malloc(sizeof(char) * (len + 1));
 	if (dest == NULL)
 		return (NULL);
-	i = 0;
-	while (s[i])
-	{
-		dest[i] = s[i];
-		i++;
-	}
-	dest[i] = '\0';
+	ft_memcpy(dest, s, len + 1);
 	return (dest);
 }

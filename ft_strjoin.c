@@ -6,7 +6,7 @@
 /*   By: khooftma <khooftma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 09:29:57 by khooftma          #+#    #+#             */
-/*   Updated: 2026/04/27 17:36:31 by khooftma         ###   ########.fr       */
+/*   Updated: 2026/05/06 16:08:17 by khooftma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
-	str = malloc(sizeof(char) * (len1 + len2 + 1));
+	str = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
 	if (!str)
 		return (NULL);
 	ft_memcpy(str, s1, len1);
