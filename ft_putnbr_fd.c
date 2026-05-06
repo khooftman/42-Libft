@@ -6,7 +6,7 @@
 /*   By: khooftma <khooftma@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 16:16:45 by khooftma          #+#    #+#             */
-/*   Updated: 2026/04/27 17:37:27 by khooftma         ###   ########.fr       */
+/*   Updated: 2026/05/06 10:01:54 by khooftma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_putnbr_fd(int n, int fd)
 	if (nb < 0)
 	{
 		nb *= -1;
-		write(1, "-", 1);
+		write(fd, "-", 1);
 	}
 	if (nb >= 10)
 	{
