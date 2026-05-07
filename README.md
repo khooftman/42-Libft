@@ -47,7 +47,9 @@ The library is composed of three main categories of functions:
    - `ft_putchar_fd` Outputs a character to a given file descriptor.
    - `ft_putstr_fd` Outputs a string to a given file descriptor.
    - `ft_putendl_fd` Outputs a string followed by a newline to a file descriptor.
-   - `ft_putnbr_fd` Outputs an integer to a given file descriptor.
+   - `ft_putnbr_fd` Outputs
+
+ an integer to a given file descriptor.
 
 3. **Linked List Functions:**
    Functions to manage and manipulate linked list structures.
